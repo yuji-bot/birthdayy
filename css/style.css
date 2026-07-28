@@ -1,0 +1,608 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }
+    
+h1,h2,
+.photo-card h2,
+.final-name{
+    font-family: 'Pacifico', cursive;
+}
+    body{
+    
+    background:linear-gradient(#020617,#091428,#000);
+    
+    height:100vh;
+    
+    overflow:hidden;
+    
+    font-family: 'Comic Neue', sans-serif;
+    
+    color:white;
+    
+    }
+    
+    .container{
+    
+    width:100%;
+    
+    height:100%;
+    
+    position:relative;
+    
+    }
+    
+    .screen{
+        display:none;
+        position:absolute;
+        inset:0;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+    }
+    
+    .active{
+        display:flex;
+    }
+    
+    .active{
+    
+    display:flex;
+    
+    }
+    
+    h1{
+        margin-top: 10px;
+        font-family: 'Fredoka', sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #FFD54F;
+        text-shadow: 0 0 15px rgba(255,213,79,0.7);
+    }
+    
+    h3{
+  
+    
+    color:#FFD54F;
+    
+    font-weight:500;
+    
+    }
+    
+    p{
+    
+    margin-top:30px;
+    
+    opacity:.8;
+    
+    }
+    
+    /* Moon */
+    
+    .moon{
+    
+    position:absolute;
+    
+    top:40px;
+    
+    right:40px;
+    
+    width:90px;
+    
+    height:90px;
+    
+    background:white;
+    
+    border-radius:50%;
+    
+    box-shadow:
+    
+    0 0 30px white,
+    
+    0 0 70px white;
+    
+    }
+    
+    /* Stars */
+    
+    .stars{
+    
+    position:absolute;
+    
+    inset:0;
+    
+    background-image:
+    
+    radial-gradient(white 1px,transparent 1px);
+    
+    background-size:40px 40px;
+    
+    animation:twinkle 3s infinite alternate;
+    
+    }
+    
+    @keyframes twinkle{
+    
+    from{
+    
+    opacity:.5;
+    
+    }
+    
+    to{
+    
+    opacity:1;
+    
+    }
+    
+    }
+    
+    /* Gift */
+    
+    .gift{
+    
+    position:relative;
+    
+    width:140px;
+    
+    height:140px;
+    
+    margin-top:35px;
+    
+    cursor:pointer;
+    
+    animation:float 3s infinite;
+    
+    }
+    
+    .box{
+    
+    position:absolute;
+    
+    bottom:0;
+    
+    width:140px;
+    
+    height:95px;
+    
+    background:#ff4d88;
+    
+    border-radius:10px;
+    
+    }
+    
+    .lid{
+    
+    position:absolute;
+    
+    top:35px;
+    
+    width:140px;
+    
+    height:30px;
+    
+    background:#ff73aa;
+    
+    border-radius:8px;
+    
+    transition:.8s;
+    
+    transform-origin:left bottom;
+    
+    z-index:2;
+    
+    }
+    
+    .ribbon-v{
+    top:40px;
+
+    position:absolute;
+    
+    left:61px;
+    
+    width:18px;
+    
+    height:100px;
+    
+    background:#FFD54F;
+    
+    z-index:3;
+    
+    }
+    
+    .ribbon-h{
+    
+    position:absolute;
+    
+    top:48px;
+    
+    width:140px;
+    
+    height:18px;
+    
+    background:#FFD54F;
+    
+    z-index:3;
+    
+    }
+    
+    .open .lid{
+    
+    transform:
+    
+    translateY(-45px)
+    
+    rotate(-25deg);
+    
+    }
+    
+    @keyframes float{
+    
+    0%,100%{
+    
+    transform:translateY(0);
+    
+    }
+    
+    50%{
+    
+    transform:translateY(-12px);
+    
+    }
+    
+    }
+    
+    /* Story */
+    
+    #typing{
+    
+    font-size:28px;
+    
+    max-width:500px;
+    
+    line-height:1.6;
+    
+    }
+    
+    /* Mobile */
+    
+    @media(max-width:768px){
+    
+    h1{
+    
+    font-size:52px;
+    
+    }
+    
+    #typing{
+    
+    font-size:24px;
+    
+    }
+    
+    .gift{
+    
+    transform:scale(.9);
+    
+    }
+    
+    }
+
+    /* ---------- Gallery ---------- */
+
+    #gallery{
+
+    
+    justify-content:center;
+    
+    align-items:center;
+    flex-direction:column;
+    
+    align-items:center;
+    
+    animation:fadeIn .8s;
+    
+    }
+    
+    .photo-card{
+    
+    display:none;
+    flex-direction: column;   /* Stack image and text vertically */
+    justify-content: center;
+    align-items: center;
+    
+    
+    
+    }
+
+    .photo-card.active-card{
+        display:flex;
+    }
+    
+    
+    .photo-card img{
+    
+    width:280px;
+    
+    max-width:85vw;
+    
+    aspect-ratio:4/5;
+    
+    object-fit:cover;
+    
+    border-radius:18px;
+    
+    border:4px solid white;
+    
+    box-shadow:0 15px 35px rgba(0,0,0,.45);
+    
+    }
+    
+    .photo-card h2{
+    
+    margin-top:20px;
+    
+    font-family:"Pacifico";
+    
+    font-size:34px;
+    
+    font-weight:400;
+    
+    padding:0 20px;
+    
+    text-align:center;
+    
+    }
+    
+    @keyframes fadeIn{
+    
+    from{
+    
+    opacity:0;
+    
+    transform:translateY(40px);
+    
+    }
+    
+    to{
+    
+    opacity:1;
+    
+    transform:translateY(0);
+    
+    }
+    
+    }
+
+    /* ------------ Cake ------------ */
+
+#cake{
+    justify-content:center;
+    align-items:center;
+}
+
+.cake {
+    position: relative;
+    margin: 40px 0;
+    width: 220px;
+    height: 180px;
+}
+
+.cake-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 220px;
+    height: 120px;
+
+    background: linear-gradient(#ff6fa8, #ff4d88);
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+
+    z-index: 1;
+}
+
+.candle {
+    position: absolute;
+
+    bottom: 120px;      /* Places it on top of the cake */
+    left: 100px;
+
+    width: 20px;
+    height: 55px;
+
+    background: white;
+    border-radius: 5px;
+
+    z-index: 2;         /* Above the cake */
+}
+
+.flame {
+    position: absolute;
+
+    top: -18px;
+    left: 2px;
+
+    width: 16px;
+    height: 22px;
+
+    background: gold;
+    border-radius: 50%;
+
+    box-shadow: 0 0 20px orange;
+
+    animation: flicker .25s infinite alternate;
+
+    z-index: 3;         /* Above everything */
+}
+
+@keyframes flicker{
+
+from{
+
+transform:scale(1);
+
+}
+
+to{
+
+transform:scale(.8);
+
+}
+
+}
+
+/* ------------ Letter ------------ */
+
+.letter-box{
+
+    width:min(600px,90vw);
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.25);
+
+}
+
+.letter-box p{
+
+    margin-top:20px;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:white;
+
+}
+
+/* ================= Finale ================= */
+
+#finale{
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,#122040,#020617);
+
+}
+
+#fireworks{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+}
+
+.final-content{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    animation:zoomIn 2s;
+
+}
+
+.final-title{
+
+    font-size:60px;
+
+    color:#FFD54F;
+
+    text-shadow:0 0 20px gold;
+
+}
+
+.final-name{
+
+    font-family:"Great Vibes";
+
+    font-size:55px;
+
+    color:#ff85b5;
+
+    margin:20px 0;
+
+}
+
+.final-msg{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+}
+
+@keyframes zoomIn{
+
+from{
+
+opacity:0;
+
+transform:scale(.5);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+/* Confetti */
+
+.confetti{
+
+position:absolute;
+
+inset:0;
+
+overflow:hidden;
+
+}
+
+.confetti span{
+
+position:absolute;
+
+top:-20px;
+
+width:8px;
+
+height:16px;
+
+background:white;
+
+animation:fall linear infinite;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(120vh) rotate(720deg);
+
+}
+
+}

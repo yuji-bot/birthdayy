@@ -1,0 +1,31 @@
+@keyframes float {
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+
+@keyframes glow {
+
+    from{
+        opacity:.5;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+.gift{
+
+    animation:float 3s infinite ease-in-out;
+
+}
